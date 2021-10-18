@@ -54,12 +54,32 @@ public class MyLinkedList {
 		newNode.setNext(tempNode);
 	}
 
-	public INode searchKey() {
+	public INode searchKey(int keyValue) {
 		INode node = head;
-		while (!node.getKey().equals(30)) {
+		while (!node.getKey().equals(keyValue)) {
 			node = node.getNext();
 		}
 		return node;
+	}
+
+	public void deleteNode(int keyValue) {
+		INode node = head;
+		INode previous = null;
+		while (!node.getKey().equals(keyValue)) {
+			previous = node;
+			node = node.getNext();
+		}
+		previous.setNext(node.getNext());
+	}
+
+	public int sizeOf() {
+		INode node = head;
+		int count = 1;
+		while (node.getNext() != null) {
+			count = count + 1;
+			node = node.getNext();
+		}
+		return count;
 	}
 
 	public void printMyNodes() {
