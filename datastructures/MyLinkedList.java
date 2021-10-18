@@ -54,17 +54,12 @@ public class MyLinkedList {
 		newNode.setNext(tempNode);
 	}
 
-	public boolean searchKey() {
+	public INode searchKey() {
 		INode node = head;
-		boolean check;
 		while (!node.getKey().equals(30)) {
 			node = node.getNext();
 		}
-		if (node.getKey().equals(30))
-			check = true;
-		else
-			check = false;
-		return check;
+		return node;
 	}
 
 	public void printMyNodes() {
