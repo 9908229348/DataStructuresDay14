@@ -9,13 +9,13 @@ public class MyNodeTest {
 		MyLinkedList myLinkedList = new MyLinkedList();
 		myLinkedList.add(myFirstNode);
 		myLinkedList.append(myThirdNode);
-		myLinkedList.insert(myFirstNode,mySecondNode);
+		myLinkedList.insert(myFirstNode, mySecondNode);
 		myLinkedList.printMyNodes();
-		myLinkedList.pop();
-		System.out.println("LinkedList after popping the first element");
+		myLinkedList.popLast();
+		System.out.println("LinkedList after popping the last element");
 		myLinkedList.printMyNodes();
-		boolean result = myLinkedList.head.equals(mySecondNode) && myLinkedList.head.getNext().equals(myThirdNode)
-				&& myLinkedList.tail.equals(myThirdNode);
+		boolean result = myLinkedList.head.equals(myFirstNode) && myLinkedList.head.getNext().equals(mySecondNode)
+						 && myLinkedList.tail.equals(mySecondNode);
 		if (result == true)
 			System.out.println("Nodes are linked");
 		else
