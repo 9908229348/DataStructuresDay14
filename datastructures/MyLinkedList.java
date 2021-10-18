@@ -1,97 +1,34 @@
 package datastructures;
 
 public class MyLinkedList {
-	public INode head;
-	public INode tail;
+	private INode head;
 
-	public MyLinkedList() {
-		this.head = null;
-		this.tail = null;
+	MyLinkedList() {
+		head = null;
 	}
 
-	public void add(INode newNode) {
-		if (this.tail == null)
-			this.tail = newNode;
-		if (this.head == null) {
-			this.head = newNode;
-		} else {
-			INode tempNode = this.head;
-			this.head = newNode;
-			this.head.setNext(tempNode);
-		}
-	}
-
-	public void append(INode myNode) {
-		if (this.tail == null)
-			this.tail = myNode;
-		if (this.head == null) {
-			this.head = myNode;
-		} else {
-			this.tail.setNext(myNode);
-			this.tail = myNode;
-		}
-	}
-
-	public INode pop() {
-		INode tempNode = this.head;
-		this.head = head.getNext();
-		return tempNode;
-	}
-
-	public INode popLast() {
-		INode tempNode = head;
-		while (!tempNode.getNext().equals(tail)) {
-			tempNode = tempNode.getNext();
-		}
-		this.tail = tempNode;
-		tail.setNext(null);
-		return tempNode;
-	}
-
-	public void insert(INode myNode, INode newNode) {
-		INode tempNode = myNode.getNext();
-		myNode.setNext(newNode);
-		newNode.setNext(tempNode);
-	}
-
-	public INode searchKey(int keyValue) {
-		INode node = head;
-		while (!node.getKey().equals(keyValue)) {
-			node = node.getNext();
-		}
-		return node;
-	}
-
-	public void deleteNode(int keyValue) {
-		INode node = head;
+	public void insert(int data) {
+		INode newNode = new MyNode(data);
+		INode current = head;
 		INode previous = null;
-		while (!node.getKey().equals(keyValue)) {
-			previous = node;
-			node = node.getNext();
+		while (current != null && data > current.getKey()) {
+			previous = current;
+			current = current.getNext();
 		}
-		previous.setNext(node.getNext());
+		if (previous == null) {
+			head = newNode;
+		} else {
+			previous.setNext(newNode);
+			;
+		}
+		newNode.setNext(current);
 	}
 
-	public int sizeOf() {
-		INode node = head;
-		int count = 1;
-		while (node.getNext() != null) {
-			count = count + 1;
-			node = node.getNext();
+	public void displayList() {
+		INode current = head;
+		while (current != null) {
+			System.out.print(current.getKey() + " ");
+			current = current.getNext();
 		}
-		return count;
-	}
-
-	public void printMyNodes() {
-		StringBuffer myNodes = new StringBuffer("My Nodes:");
-		INode tempNode = head;
-		while (tempNode.getNext() != null) {
-			myNodes.append(tempNode.getKey());
-			if (!tempNode.equals(tail))
-				myNodes.append("-->");
-			tempNode = tempNode.getNext();
-		}
-		myNodes.append(tempNode.getKey());
-		System.out.println(myNodes);
 	}
 }
