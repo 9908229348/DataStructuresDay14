@@ -19,7 +19,7 @@ public class MyNodeTest {
 		System.out.println("LinkedList after deleting 40");
 		myLinkedList.deleteNode(40);
 		myLinkedList.printMyNodes();
-		System.out.println("Size is :" + myLinkedList.sizeOf());
+		System.out.println("Size of LinkedList :" + myLinkedList.sizeOf());
 		boolean result = myLinkedList.head.equals(myFirstNode) && myLinkedList.head.getNext().equals(mySecondNode)
 				         && myLinkedList.tail.equals(myThirdNode) && mySecondNode.getNext().equals(myThirdNode);
 		if (result == true)
