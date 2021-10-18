@@ -14,6 +14,8 @@ public class MyNodeTest {
 		myLinkedList.popLast();
 		System.out.println("LinkedList after popping the last element");
 		myLinkedList.printMyNodes();
+		boolean find = myLinkedList.searchKey();
+		System.out.println("Node with key 30 is Present in List :" +find);
 		boolean result = myLinkedList.head.equals(myFirstNode) && myLinkedList.head.getNext().equals(mySecondNode)
 						 && myLinkedList.tail.equals(mySecondNode);
 		if (result == true)

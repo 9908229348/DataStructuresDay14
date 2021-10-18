@@ -54,6 +54,19 @@ public class MyLinkedList {
 		newNode.setNext(tempNode);
 	}
 
+	public boolean searchKey() {
+		INode node = head;
+		boolean check;
+		while (!node.getKey().equals(30)) {
+			node = node.getNext();
+		}
+		if (node.getKey().equals(30))
+			check = true;
+		else
+			check = false;
+		return check;
+	}
+
 	public void printMyNodes() {
 		StringBuffer myNodes = new StringBuffer("My Nodes:");
 		INode tempNode = head;
