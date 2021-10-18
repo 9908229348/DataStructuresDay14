@@ -21,7 +21,7 @@ public class MyNodeTest {
 		myLinkedList.printMyNodes();
 		System.out.println("Size is :" + myLinkedList.sizeOf());
 		boolean result = myLinkedList.head.equals(myFirstNode) && myLinkedList.head.getNext().equals(mySecondNode)
-				&& myLinkedList.tail.equals(myThirdNode) && mySecondNode.getNext().equals(myThirdNode);
+				         && myLinkedList.tail.equals(myThirdNode) && mySecondNode.getNext().equals(myThirdNode);
 		if (result == true)
 			System.out.println("Nodes are linked");
 		else
