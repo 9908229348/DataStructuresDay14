@@ -1,27 +1,27 @@
 package datastructures;
 
-public class MyLinkedList {
-	private INode head;
+public class MyLinkedList<K extends Comparable<K>> {
+	public INode head;
+	public INode tail;
 
-	MyLinkedList() {
+	public MyLinkedList() {
 		head = null;
 	}
 
-	public void insert(int data) {
-		INode newNode = new MyNode(data);
+	public void insert(INode node) {
 		INode current = head;
+		// System.out.println(head.getKey()+" " + node.getKey());
 		INode previous = null;
-		while (current != null && data > current.getKey()) {
+		while (current != null && ((Comparable<K>) node.getKey()).compareTo((K) current.getKey()) > 0) {
 			previous = current;
 			current = current.getNext();
 		}
 		if (previous == null) {
-			head = newNode;
+			head = node;
 		} else {
-			previous.setNext(newNode);
-			;
+			previous.setNext(node);
 		}
-		newNode.setNext(current);
+		node.setNext(current);
 	}
 
 	public void displayList() {
@@ -29,6 +29,18 @@ public class MyLinkedList {
 		while (current != null) {
 			System.out.print(current.getKey() + " ");
 			current = current.getNext();
+		}
+	}
+
+	public void add(INode newNode) {
+		if (this.tail == null)
+			this.tail = newNode;
+		if (this.head == null) {
+			this.head = newNode;
+		} else {
+			INode tempNode = this.head;
+			this.head = newNode;
+			this.head.setNext(tempNode);
 		}
 	}
 }

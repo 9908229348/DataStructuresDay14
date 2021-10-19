@@ -1,9 +1,9 @@
 package datastructures;
 
-public interface INode {
-	int getKey();
+public interface INode<K> {
+	K getKey();
 	
-	void setKey(int key);
+	void setKey(K key);
 
 	INode getNext();
 
