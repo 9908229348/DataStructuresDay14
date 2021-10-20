@@ -22,6 +22,8 @@ public class MyQueue<K> {
 	public void push(INode<K> myNode) {
 		myList.append(myNode);
 	}
-
+	
+	public void dequeue() {
+		myList.pop();
+	}
 }
-

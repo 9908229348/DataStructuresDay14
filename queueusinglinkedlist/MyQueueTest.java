@@ -20,6 +20,8 @@ public class MyQueueTest {
 		} else {
 			System.out.println("Not Linked");
 		}
+		myQueue.dequeue();
+		System.out.println("Queue after dequeue from begining");
+		myQueue.printStack();
 	}
-
 }
