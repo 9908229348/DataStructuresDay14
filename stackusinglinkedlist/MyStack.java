@@ -23,4 +23,15 @@ public class MyStack<K> {
 	public void push(INode<K> myNode) {
 		myList.add(myNode);
 	}
+
+	public void pop() {
+		INode tempNode = myList.head;
+		while (tempNode.getNext() != null) {
+			myList.pop();
+			tempNode = tempNode.getNext();
+			if (tempNode == myList.tail) {
+				tempNode.setKey(" ");
+			}
+		}
+	}
 }

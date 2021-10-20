@@ -20,5 +20,8 @@ public class MyStockTest {
 		} else {
 			System.out.println("Not Linked");
 		}
+		myStack.pop();
+		System.out.println("LinkedList after popping all elements");
+		myStack.printStack();
 	}
 }
